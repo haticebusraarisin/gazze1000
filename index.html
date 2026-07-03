@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<!-- Google tag (gtag.js) - Google Analytics 4
+     NOT: Aşağıdaki G-XXXXXXXXXX yer tutucusunu kendi GA4 Ölçüm Kimliğinizle değiştirin.
+     Örnek biçim: G-ABC123DEF4
+-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gazze'de Halk Sağlığı Krizi — 1000. Gün Veri Dosyası</title>
+<meta property="og:title" content="Gazze'de Halk Sağlığı Krizi — 1000. Gün Veri Dosyası">
+<meta property="og:description" content="WHO, BM, IPC, Gazze Sağlık Bakanlığı ve hakemli literatür (Lancet) verileriyle Gazze'deki halk sağlığı felaketinin belgesi. 7 Ekim 2023 – Temmuz 2026.">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{--ink:#1a1a2e;--acc:#8b1e1e;--soft:#f6f4f0;--line:#d8d3ca;--muted:#6b6b6b;}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);margin:0;background:#fff;line-height:1.55;}
+  .wrap{max-width:960px;margin:0 auto;padding:32px 24px 64px;}
+  h1{font-size:1.7em;border-bottom:3px solid var(--acc);padding-bottom:10px;margin-bottom:4px;}
+  .sub{color:var(--muted);font-size:.95em;margin-bottom:28px;}
+  h2{font-size:1.25em;color:var(--acc);margin-top:44px;border-left:5px solid var(--acc);padding-left:10px;}
+  table{width:100%;border-collapse:collapse;margin:14px 0 8px;font-size:.92em;}
+  th{background:var(--ink);color:#fff;text-align:left;padding:8px 10px;font-weight:600;}
+  td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:var(--soft);}
+  .src{font-size:.85em;color:var(--muted);}
+  .chartbox{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:18px;margin:18px 0;}
+  .chartbox h3{margin:0 0 10px;font-size:1em;color:var(--ink);}
+  canvas{max-height:340px;}
+  .note{background:#fdf6e3;border-left:4px solid #b58900;padding:12px 14px;font-size:.9em;margin:14px 0;}
+  .case{background:#f7ecec;border-left:4px solid var(--acc);padding:14px 16px;margin:18px 0;font-size:.95em;}
+  .intro{background:var(--soft);border:1px solid var(--line);border-left:5px solid var(--acc);border-radius:6px;padding:20px 22px;margin:16px 0 24px;font-size:1em;}
+  .intro p{margin:0 0 12px;}
+  .intro p:last-child{margin-bottom:0;}
+  .intro .poem{font-style:italic;color:var(--acc);font-size:1.05em;margin-top:16px;}
+  .intro .poet{color:var(--muted);font-size:.9em;}
+  .foot{margin-top:48px;padding-top:16px;border-top:2px solid var(--line);font-size:.85em;color:var(--muted);}
+  ol.refs{font-size:.85em;color:var(--muted);padding-left:20px;}
+  ol.refs li{margin-bottom:4px;}
+  sup{color:var(--acc);font-weight:bold;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Gazze'de Halk Sağlığı Krizi: Veri Dosyası</h1>
+<div class="sub">Kapsam: 7 Ekim 2023 – Temmuz 2026 · Kaynaklar: WHO, BM (OCHA, OHCHR, UNICEF, UNRWA), IPC, Gazze Sağlık Bakanlığı, hakemli literatür (Lancet) · Derleme/erişim tarihi: 3 Temmuz 2026</div>
+
+<div class="intro">
+<p><b>Bugün, Gazze'deki soykırımın 1000. günü.</b></p>
+<p>Bu dosya rakamlardan oluşuyor; ama sizden rakamlara bakarken, her satırındaki insanları görmenizi temenni ederim. Bu veri setlerinde hastanesinin başında gözaltına alınan, hiçbir gerekçe gösterilmeksizin 18 aydır tutulan ve ağır işkence altında olduğu BM raporlarına geçen Dr. Hüsam Ebu Safiye var. Bu veri setlerinde hastalarının başından ayrılmadığı için öldürülen, yaralanan, ailesini kaybeden, gördüklerinin ağırlığını hâlâ taşıyan, TSSB altında binlerce sağlık çalışanı var. Kardeşine annelik, babalık yapan yetim çocuklar; enkazın ortasında hayata tutunmaya çalışan aileler; yaşlılar, engelliler, kadınlar, erkekler ve en çok da çocuklar var.</p>
+<p>Bir halk sağlığı hekimi olarak bu verileri derledim; çünkü sayılar ikna etmeye yaramasa da, tanıklığım baki kalsın isterim.</p>
+<p class="poem">"If I must die, you must live to tell my story."</p>
+<p class="poet">— Refaat Alareer (1979–2023, Gazze)</p>
+</div>
+
+<h2>Bu Durum Neden "Soykırım" Olarak Nitelendiriliyor?</h2>
+<p style="font-size:.95em;">1948 BM Soykırım Sözleşmesi (madde II) soykırımı, bir grubu kısmen veya tamamen yok etme kastıyla işlenen şu fiiller olarak tanımlar: öldürme; ağır bedensel veya ruhsal zarar verme; grubun fiziksel varlığını yok edecek yaşam koşullarını kasten dayatma; doğumları engelleme; çocukları zorla başka gruba nakletme. Aşağıdaki tespitler bu hukuki tanıma dayanır:</p>
+<table>
+<tr><th>Tarih</th><th>Merci</th><th>Tespit</th></tr>
+<tr><td>26 Oca / 28 Mar / 24 May 2024</td><td>Uluslararası Adalet Divanı (UAD)</td><td>Soykırım riskini "makul (plausible)" buldu; İsrail'e yönelik üç ayrı geçici tedbir kararı verdi<sup>[35]</sup></td></tr>
+<tr><td>Kasım 2024</td><td>BM Özel Komitesi</td><td>İsrail'in Gazze'deki savaş yöntemlerinin "soykırım özellikleri taşıdığını" tespit etti</td></tr>
+<tr><td>Aralık 2024</td><td>Amnesty International</td><td>Kapsamlı saha araştırması sonucunda soykırım işlendiği sonucuna vardı</td></tr>
+<tr><td>Eylül 2025</td><td>IAGS — Uluslararası Soykırım Araştırmacıları Birliği</td><td>Alanın uluslararası meslek örgütü, Gazze'de soykırım işlendiğine dair karar aldı<sup>[36]</sup></td></tr>
+<tr><td>16 Eylül 2025</td><td>BM Bağımsız Soruşturma Komisyonu</td><td>Sözleşmedeki 5 soykırım fiilinden <b>4'ünün işlendiğini ve "yok etme kastının"</b> üst düzey yetkililerin beyanlarıyla kanıtlandığını tespit etti<sup>[37]</sup></td></tr>
+<tr><td>—</td><td>Bilimsel zemin</td><td>Bu tespitlerin dayandığı deliller arasında bu dosyadaki veriler yer alıyor: doğrulanmış ölüm sayıları (BM/Lancet), kıtlık teyidi (IPC), sağlık sistemine saldırılar (WHO) ve resmî beyanlar.</td></tr>
+</table>
+
+<h2>1. Mortalite ve Yaralanma</h2>
+
+<table>
+<tr><th>Gösterge</th><th>Sayı</th><th>Veri tarihi</th><th>Kaynak</th></tr>
+<tr><td>Doğrudan öldürülen toplam kişi</td><td><b>71.803</b> (Haziran 2026'da 72.945+)</td><td>3 Şub 2026 / Haz 2026</td><td class="src">Gazze SB verisi, BM (OCHA) aktarımı<sup>[1]</sup></td></tr>
+<tr><td>Öldürülen çocuk</td><td><b>≥21.289</b></td><td>Şub 2026</td><td class="src">UNICEF<sup>[2]</sup></td></tr>
+<tr><td>Yaralanan toplam kişi</td><td><b>171.230</b> (44.500'ü çocuk)</td><td>Şub 2026</td><td class="src">UNICEF<sup>[2]</sup></td></tr>
+<tr><td>Şiddete bağlı ölüm — bağımsız saha tahmini</td><td><b>75.200</b> (ilk 15 ay; resmî sayımın ~%35 üstü)</td><td>5 Oca 2025 itibarıyla</td><td class="src">Gaza Mortality Survey, Lancet Global Health<sup>[3]</sup></td></tr>
+<tr><td>Şiddet dışı ek ölüm (hastalık, bakım yokluğu vb.)</td><td><b>~16.300</b> (ilk 15 ay)</td><td>5 Oca 2025 itibarıyla</td><td class="src">Lancet Global Health<sup>[3]</sup></td></tr>
+<tr><td>Ölenler içinde kadın + çocuk + yaşlı payı</td><td><b>%56</b></td><td>Oca 2025</td><td class="src">Lancet Global Health<sup>[3]</sup></td></tr>
+<tr><td>Kaybedilen yaşam yılı</td><td><b>3 milyondan fazla</b></td><td>2025</td><td class="src">Lancet<sup>[4]</sup></td></tr>
+</table>
+
+<div class="chartbox"><h3>Resmî sayım vs bağımsız bilimsel tahmin (5 Ocak 2025 itibarıyla, şiddete bağlı ölümler)</h3><canvas id="c1"></canvas></div>
+
+<h2>2. Sağlık Sistemi ve Sağlık Çalışanlarına Saldırılar</h2>
+<table>
+<tr><th>Gösterge</th><th>Sayı</th><th>Veri tarihi</th><th>Kaynak</th></tr>
+<tr><td>Sağlık hizmetine doğrulanmış saldırı</td><td><b>930+</b> (yalnız 2026 içinde 22 hastane saldırısı)</td><td>Eki 2023 – 2026</td><td class="src">WHO SSA sürveyans sistemi<sup>[5]</sup></td></tr>
+<tr><td>Hasar gören hastane</td><td><b>36 hastanenin 34'ü (%94)</b></td><td>Ağu 2025</td><td class="src">WHO<sup>[6]</sup></td></tr>
+<tr><td>Kısmen çalışabilen hastane</td><td><b>18/36 (%50)</b> — hiçbiri tam kapasitede değil; Kuzey Gazze'de çalışan hastane yok (Oca 2026)</td><td>Ağu 2025 / Oca 2026</td><td class="src">WHO, EMRO sitrep<sup>[6,7]</sup></td></tr>
+<tr><td>Öldürülen sağlık çalışanı</td><td><b>≥1.580</b> (WHO) — <b>1.722</b> (Healthcare Workers Watch)</td><td>2025</td><td class="src">WHO / HWW<sup>[8]</sup></td></tr>
+<tr><td>Hukuksuz gözaltına alınan sağlık çalışanı</td><td><b>384 belgelenmiş vaka</b> (339'u Gazze'den); ≥185'i halen tutuklu, 24'ü kayıp</td><td>2025-2026</td><td class="src">Healthcare Workers Watch<sup>[8]</sup></td></tr>
+<tr><td>Gözaltında ölen hekim</td><td><b>≥2</b> — Dr. Adnan El-Burş, Dr. İyad El-Rantisi (işkence bulgularıyla)</td><td>2024</td><td class="src">OHCHR, HRW<sup>[9,10]</sup></td></tr>
+<tr><td>İşkence belgeleri</td><td>OHCHR raporları; BM Özel Raportörü: işkence "devlet doktrini" hâline geldi</td><td>Tem 2024 / Mar 2026</td><td class="src">OHCHR<sup>[11,12]</sup></td></tr>
+</table>
+
+<div class="case"><b>Vaka: Dr. Hüsam Ebu Safiye</b> — Kamal Advan Hastanesi başhekimi (pediatrist). Hastane baskınında 27 Aralık 2024'te gözaltına alındı; 18 aydır <b>suçlama ve yargılama olmaksızın</b> tutuklu. BM uzmanları (Mart 2026) "ağır işkence" raporları üzerine tutukluluğu "açıkça keyfî" ilan edip derhal serbest bırakılmasını istedi. 3 Haziran 2026'dan beri hücre hapsinde; 16 Haziran 2026'da İsrail Yüksek Mahkemesi tutukluluğu en az Ekim 2026'ya kadar uzattı.<sup>[13,14]</sup></div>
+
+<div class="chartbox"><h3>Gazze'deki 36 hastanenin durumu (Ağustos 2025, WHO)</h3><canvas id="c2"></canvas></div>
+
+<h2>3. Açlık, Kıtlık ve Malnütrisyon</h2>
+<table>
+<tr><th>Gösterge</th><th>Sayı</th><th>Veri tarihi</th><th>Kaynak</th></tr>
+<tr><td>Kıtlık (IPC Faz 5) resmî teyidi</td><td>Gazze Valiliği'nde kıtlık teyit edildi — <b>bölge tarihinde ilk</b></td><td>22 Ağu 2025</td><td class="src">IPC; WHO ortak bildirisi<sup>[15,16]</sup></td></tr>
+<tr><td>Ateşkes sonrası durum</td><td>Kıtlık geriletildi; ancak <b>1,6 milyon kişi</b> (800.000'i çocuk) 2026'ya akut gıda güvensizliğiyle girdi; nüfusun büyük bölümü IPC Faz 4 (acil durum)</td><td>Ara 2025</td><td class="src">IPC, BM<sup>[17]</sup></td></tr>
+<tr><td>Akut malnütrisyon projeksiyonu (6-59 ay çocuk)</td><td><b>~101.000 çocuk</b>, ≥31.000'i ağır (SAM)</td><td>Ara 2025 – Eki 2026 proj.</td><td class="src">IPC<sup>[17]</sup></td></tr>
+<tr><td>Kıtlık dönemindeki projeksiyon (karşılaştırma)</td><td>132.000 çocuk (41.000'i ağır) — Mayıs 2025 tahmininin iki katı</td><td>Ağu 2025 analizi</td><td class="src">IPC<sup>[15]</sup></td></tr>
+<tr><td>Malnütrisyonlu gebe/emziren kadın</td><td><b>~55.500</b></td><td>2025-2026</td><td class="src">IPC/UNICEF<sup>[17]</sup></td></tr>
+<tr><td>Malnütrisyona bağlı doğrulanmış ölümler</td><td>2025'te ≥74 (63'ü yalnız Temmuz'da); Ağustos 2025 sonunda <b>≥100 çocuk</b> açlıktan öldü</td><td>Ağu 2025</td><td class="src">WHO / UNRWA / UNICEF<sup>[18,19]</sup></td></tr>
+<tr><td>Tek ayda malnütrisyon tanısı alan çocuk</td><td><b>5.000+</b> (Mayıs 2025)</td><td>May 2025</td><td class="src">UNICEF<sup>[20]</sup></td></tr>
+</table>
+
+<div class="chartbox"><h3>Çocuklarda akut malnütrisyon projeksiyonları (IPC)</h3><canvas id="c3"></canvas></div>
+
+<h2>4. Bulaşıcı Hastalık Salgınları</h2>
+<table>
+<tr><th>Hastalık</th><th>Vaka yükü</th><th>Dönem</th><th>Kaynak</th></tr>
+<tr><td>Akut solunum yolu enfeksiyonu</td><td><b>312.693 vaka</b> (yalnızca ilk 4 ayda); 2025'te toplam morbiditenin %62'si</td><td>16 Eki 2023 – 13 Şub 2024; 2025 hf.34</td><td class="src">WHO/Sağlık Kümesi sürveyansı<sup>[21]</sup></td></tr>
+<tr><td>Akut sulu ishal</td><td><b>222.620 vaka</b>, 117.989'u 5 yaş altı (ilk 4 ay)</td><td>16 Eki 2023 – 13 Şub 2024</td><td class="src">WHO/Sağlık Kümesi<sup>[21]</sup></td></tr>
+<tr><td>Akut sarılık sendromu / Hepatit A</td><td><b>~40.000 vaka</b> (ilk 12 ay) — savaş öncesi aynı dönemde 85 vaka (<b>~470 kat artış</b>)</td><td>Eki 2023 – Eki 2024</td><td class="src">UNRWA/WHO<sup>[22]</sup></td></tr>
+<tr><td>Poliomiyelit (cVDPV2)</td><td>Atık sularda virüs (Tem 2024); <b>25 yıl sonra ilk paralitik vaka</b>: 10 aylık bebek (Ağu 2024); iki tur kampanyada ~560.000 çocuk aşılandı</td><td>2024-2025</td><td class="src">WHO/GPEI, Gazze SB<sup>[23]</sup></td></tr>
+</table>
+<div class="note">Salgınların nedensel zinciri belgelidir: sağlık tesislerinin yıkımı + su-sanitasyon altyapısının çöküşü + aşırı kalabalık yerinden edilme koşulları (WHO, 8 Kas 2023: "hastalık yayılım riski fırlıyor").<sup>[24]</sup></div>
+
+<div class="chartbox"><h3>Salgın hastalık vaka yükleri</h3><canvas id="c4"></canvas></div>
+
+<h2>5. Kalıcı Sakatlık ve Rehabilitasyon Krizi</h2>
+<table>
+<tr><th>Gösterge</th><th>Sayı</th><th>Veri tarihi</th><th>Kaynak</th></tr>
+<tr><td>Yaşamı kalıcı olarak değiştiren yaralanma</td><td><b>~42.000 kişi</b> — her 4 yaralıdan 1'i; <b>~10.000'i çocuk</b></td><td>Eyl 2025</td><td class="src">WHO trauma rehab raporu<sup>[25]</sup></td></tr>
+<tr><td>Ekstremite amputasyonu</td><td><b>5.000+</b></td><td>Eyl 2025</td><td class="src">WHO<sup>[25]</sup></td></tr>
+<tr><td>Omurilik yaralanması</td><td><b>2.000+</b></td><td>Eyl 2025</td><td class="src">WHO<sup>[25]</sup></td></tr>
+<tr><td>Majör yanık</td><td><b>3.400+</b></td><td>Eyl 2025</td><td class="src">WHO<sup>[25]</sup></td></tr>
+<tr><td>Majör travmatik beyin hasarı</td><td><b>1.300+</b></td><td>Eyl 2025</td><td class="src">WHO<sup>[25]</sup></td></tr>
+<tr><td>Ayakta kalan rehabilitasyon hizmeti</td><td>Savaş öncesinin <b>üçte birinden azı</b>; Mayıs 2024 – Nisan 2026 arasında Gazze'ye <b>hiç rehabilitasyon ekipmanı girmedi</b>; 18 sevkiyat 130-520 gündür gümrükte bekliyor</td><td>Nis 2026</td><td class="src">WHO/EMRO<sup>[26]</sup></td></tr>
+</table>
+
+<div class="chartbox"><h3>Yaşamı değiştiren yaralanma türleri (WHO, Eylül 2025)</h3><canvas id="c5"></canvas></div>
+
+<h2>6. Tıbbi Tahliye (Medevac) Darboğazı</h2>
+<table>
+<tr><th>Gösterge</th><th>Sayı</th><th>Veri tarihi</th><th>Kaynak</th></tr>
+<tr><td>Tahliye edilebilen hasta</td><td><b>7.841</b></td><td>Eki 2023 – 29 Eyl 2025</td><td class="src">WHO-oPt<sup>[27]</sup></td></tr>
+<tr><td>Tahliye bekleyen hasta</td><td><b>15.000-18.500+</b>; beşte birden fazlası çocuk; ~3.800 çocuk acil uzmanlık tedavisi bekliyor</td><td>Eki 2025 – 2026</td><td class="src">WHO; WHO/Europe<sup>[27,28]</sup></td></tr>
+<tr><td>Tahliye beklerken ölen hasta</td><td><b>≥1.092</b></td><td>Tem 2024 – 28 Kas 2025</td><td class="src">Gazze SB kayıtları<sup>[29]</sup></td></tr>
+</table>
+
+<h2>7. Yerinden Edilme ve Ruh Sağlığı</h2>
+<table>
+<tr><th>Gösterge</th><th>Sayı</th><th>Veri tarihi</th><th>Kaynak</th></tr>
+<tr><td>Yerinden edilen nüfus</td><td><b>~1,9 milyon (nüfusun ~%90'ı)</b>, çoğu defalarca</td><td>2024-2025</td><td class="src">BM/UNRWA<sup>[30]</sup></td></tr>
+<tr><td>Ruh sağlığı-psikososyal destek ihtiyacı olan çocuk</td><td><b>1 milyondan fazla</b> — fiilen Gazze'deki tüm çocuklar</td><td>2025</td><td class="src">UNICEF HAC<sup>[31]</sup></td></tr>
+<tr><td>Öldürülen ya da yaralanan çocuk</td><td><b>50.000+</b></td><td>2025</td><td class="src">UNICEF<sup>[32]</sup></td></tr>
+</table>
+
+<h2>8. Gözaltılar ve İşkence</h2>
+<table>
+<tr><th>Gösterge</th><th>Sayı</th><th>Veri tarihi</th><th>Kaynak</th></tr>
+<tr><td>Ekim 2023'ten bu yana gözaltı (Filistin geneli)</td><td><b>18.500+</b>, ≥1.500'ü çocuk</td><td>Mar 2026</td><td class="src">BM<sup>[12]</sup></td></tr>
+<tr><td>Hâlen tutuklu</td><td><b>9.000+</b>; ~%40'ı yargısız idari tutukluluk; ~1.300 Gazzeli "unlawful combatant" statüsünde</td><td>May 2026</td><td class="src">OHCHR<sup>[33]</sup></td></tr>
+<tr><td>İşkence tespiti</td><td>OHCHR: sistematik işkence, keyfî ve gizli tutma; Özel Raportör: işkence "devlet doktrini"</td><td>Tem 2024 / Mar 2026</td><td class="src">OHCHR<sup>[11,12]</sup></td></tr>
+<tr><td>Hesap verebilirlik</td><td>İstihbarat birimlerine 1.680 şikâyet → <b>0 iddianame</b></td><td>2025</td><td class="src">BM CAT oturumu<sup>[34]</sup></td></tr>
+</table>
+
+<div class="foot">
+<b>Kaynaklar</b>
+<ol class="refs">
+<li>BM OCHA / Gazze Sağlık Bakanlığı verisi, Şubat-Haziran 2026 aktarımları.</li>
+<li>UNICEF State of Palestine Humanitarian Situation Update, Şubat 2026.</li>
+<li>Gaza Mortality Survey — Lancet Global Health (2025): thelancet.com/journals/langlo/article/PIIS2214-109X(25)00522-4</li>
+<li>"Over 3 million life-years lost in Gaza" — The Lancet (2025): PIIS0140-6736(25)02112-9</li>
+<li>WHO Surveillance System for Attacks on Health Care (extranet.who.int/ssa); 2026 hastane saldırıları: BM aktarımı.</li>
+<li>WHO, "Health conditions in the oPt", EB158/25 ve Ağustos 2025 durum verileri.</li>
+<li>WHO EMRO Emergency Situation Reports (Sitrep #67a, Ocak 2026).</li>
+<li>Healthcare Workers Watch (healthcareworkerswatch.org); WHO açıklamaları.</li>
+<li>OHCHR, "Statement on the killing and arbitrary detention of health workers in Gaza", 25 Haziran 2024.</li>
+<li>Human Rights Watch, "Israel: Palestinian Healthcare Workers Tortured", 26 Ağustos 2024.</li>
+<li>OHCHR, "Palestinian detainees held arbitrarily and secretly, subjected to torture", 31 Temmuz 2024.</li>
+<li>OHCHR / BM İşkence Özel Raportörü, Mart 2026 ("state doctrine") ve A/HRC/61/71.</li>
+<li>OHCHR, "UN experts demand immediate release of Dr Abu Safiya", Mart 2026.</li>
+<li>Amnesty International, MDE 15/1242/2026; Haziran 2026 mahkeme gözlemleri.</li>
+<li>IPC Special Snapshot, "Famine confirmed in Gaza Governorate", 22 Ağustos 2025.</li>
+<li>WHO ortak bildirisi, "Famine confirmed for first time in Gaza", 22 Ağustos 2025.</li>
+<li>IPC Acute Malnutrition Analysis, Aralık 2025 – Ekim 2026 projeksiyonu; BM Haber, 19 Aralık 2025.</li>
+<li>WHO, "Malnutrition rates reach alarming levels in Gaza", 27 Temmuz 2025.</li>
+<li>UNRWA/BM, malnütrisyon ölümleri açıklamaları, Ağustos 2025.</li>
+<li>UNICEF, "More than 5,000 children diagnosed with malnutrition in May", 2025.</li>
+<li>WHO/Sağlık Kümesi sürveyans verileri, Ekim 2023 – Şubat 2024; PHSA Eylül 2025 (who.int PHSA belgesi).</li>
+<li>UNRWA sağlık merkezi verileri; Hendy & Hendy, "Hepatitis A Outbreak in Gaza" (2025).</li>
+<li>GPEI/WHO polio açıklamaları, Temmuz 2024 – Şubat 2025.</li>
+<li>WHO, "Risk of disease spread soars in Gaza", 8 Kasım 2023.</li>
+<li>WHO, "Estimating trauma rehabilitation needs in Gaza: September 2025 update".</li>
+<li>WHO EMRO, "One in four injuries in Gaza is life-changing", Ekim 2025; Nisan 2026 güncellemesi.</li>
+<li>WHO-oPt medevac verileri, 29 Eylül 2025; sonraki WHO açıklamaları.</li>
+<li>WHO/Europe, "1000 medical evacuations from Gaza", 25 Ekim 2025.</li>
+<li>Gazze SB kayıtları (BM/basın aktarımı), 28 Kasım 2025.</li>
+<li>BM/UNRWA yerinden edilme verileri, 2024-2025.</li>
+<li>UNICEF Humanitarian Action for Children — State of Palestine 2025.</li>
+<li>UNICEF, "Unimaginable horrors: more than 50,000 children reportedly killed or injured", 2025.</li>
+<li>OHCHR Özel Raportör bildirimi, Mayıs 2026.</li>
+<li>BM İşkenceye Karşı Komite (CAT) oturum özeti, Kasım 2025.</li>
+<li>UAD, Güney Afrika/İsrail davası geçici tedbir kararları: 26.01.2024, 28.03.2024, 24.05.2024.</li>
+<li>IAGS kararı, Eylül 2025.</li>
+<li>BM Bağımsız Uluslararası Soruşturma Komisyonu, A/HRC/60/CRP.3, 16 Eylül 2025.</li>
+</ol>
+</div>
+</div>
+
+<script>
+const ink='#1a1a2e', acc='#8b1e1e', mid='#c46a4a', soft='#8a9bb0', gold='#b58900';
+Chart.defaults.font.family='Georgia, serif';
+Chart.defaults.color=ink;
+
+new Chart(document.getElementById('c1'),{type:'bar',data:{
+ labels:['Gazze SB resmî sayımı','Lancet saha tahmini (şiddete bağlı)','Lancet: + şiddet dışı ek ölüm'],
+ datasets:[{data:[49090,75200,91500],backgroundColor:[soft,acc,mid]}]},
+ options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toLocaleString('tr-TR')+' kişi'}}},
+ scales:{y:{ticks:{callback:v=>v.toLocaleString('tr-TR')}}}}});
+
+new Chart(document.getElementById('c2'),{type:'doughnut',data:{
+ labels:['Kısmen çalışıyor (18)','Hasarlı / çalışmıyor (16)','Hasarsız (2)'],
+ datasets:[{data:[18,16,2],backgroundColor:[gold,acc,soft]}]},
+ options:{plugins:{legend:{position:'bottom'}}}});
+
+new Chart(document.getElementById('c3'),{type:'bar',data:{
+ labels:['May 2025 tahmini','Ağu 2025 – Haz 2026 proj. (kıtlık dönemi)','Ara 2025 – Eki 2026 proj. (ateşkes sonrası)'],
+ datasets:[{label:'Toplam akut malnütrisyon',data:[66000,132000,101000],backgroundColor:mid},
+ {label:'Ağır (SAM)',data:[null,41000,31000],backgroundColor:acc}]},
+ options:{plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:c=>(c.dataset.label||'')+': '+(c.parsed.y?c.parsed.y.toLocaleString('tr-TR'):'-')+' çocuk'}}},
+ scales:{y:{ticks:{callback:v=>v.toLocaleString('tr-TR')}}}}});
+
+new Chart(document.getElementById('c4'),{type:'bar',data:{
+ labels:['Akut solunum yolu enf. (ilk 4 ay)','Akut sulu ishal (ilk 4 ay)','5 yaş altı ishal (ilk 4 ay)','Hepatit A / sarılık (ilk 12 ay)'],
+ datasets:[{data:[312693,222620,117989,40000],backgroundColor:[soft,mid,acc,gold]}]},
+ options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.x.toLocaleString('tr-TR')+' vaka'}}},
+ scales:{x:{ticks:{callback:v=>v.toLocaleString('tr-TR')}}}}});
+
+new Chart(document.getElementById('c5'),{type:'bar',data:{
+ labels:['Majör ekstremite yaralanması','Amputasyon','Majör yanık','Omurilik yaralanması','Travmatik beyin hasarı'],
+ datasets:[{data:[22000,5000,3400,2000,1300],backgroundColor:[soft,acc,gold,mid,ink]}]},
+ options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.x.toLocaleString('tr-TR')+'+ kişi'}}},
+ scales:{x:{ticks:{callback:v=>v.toLocaleString('tr-TR')}}}}});
+</script>
+</body>
+</html>
